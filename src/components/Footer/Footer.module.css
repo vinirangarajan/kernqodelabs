@@ -1,0 +1,281 @@
+/* ── 3-D Wave keyframe ──────────────────────────────────────────────────── */
+@keyframes waveFlow {
+  0%   { d: path("M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z"); }
+  50%  { d: path("M0,40 C240,80  480,0  720,40 C960,80  1200,0  1440,40 L1440,120 L0,120 Z"); }
+  100% { d: path("M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z"); }
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+.footer {
+  background: var(--bg-secondary);
+  border-top: none;
+  padding: 0 0 0;
+  position: relative;
+}
+
+/* ── Wave wrapper ─────────────────────────────────────────────────────────── */
+.waveWrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: -2px; /* prevent hairline gap */
+}
+
+.waveSvg {
+  display: block;
+  width: 100%;
+  height: 90px;
+}
+
+/* Base wave style */
+.wave {
+  transform-origin: center bottom;
+}
+
+/* Layer 1 — top, brightest, fastest */
+.wave1 {
+  fill: rgba(124, 58, 237, 0.18);
+  animation: waveShift1 8s ease-in-out infinite;
+}
+
+/* Layer 2 — mid */
+.wave2 {
+  fill: rgba(79, 70, 229, 0.12);
+  animation: waveShift2 12s ease-in-out infinite;
+}
+
+/* Layer 3 — deepest, most transparent, slowest */
+.wave3 {
+  fill: rgba(124, 58, 237, 0.07);
+  animation: waveShift3 16s ease-in-out infinite;
+}
+
+@keyframes waveShift1 {
+  0%, 100% { transform: translateX(0)   scaleY(1);    }
+  25%       { transform: translateX(-2%) scaleY(1.06); }
+  50%       { transform: translateX(2%)  scaleY(0.94); }
+  75%       { transform: translateX(-1%) scaleY(1.03); }
+}
+
+@keyframes waveShift2 {
+  0%, 100% { transform: translateX(0)   scaleY(1);    }
+  33%       { transform: translateX(3%)  scaleY(1.08); }
+  66%       { transform: translateX(-3%) scaleY(0.92); }
+}
+
+@keyframes waveShift3 {
+  0%, 100% { transform: translateX(0)   scaleY(1);    }
+  50%       { transform: translateX(-4%) scaleY(1.1);  }
+}
+
+/* Give the footer content a proper top padding after wave */
+.footer > .container,
+.footer > div:not(.waveWrap) {
+  padding-top: 48px;
+}
+
+
+/* ── Four-column grid ────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 48px;
+  padding-bottom: 60px;
+}
+
+/* ── Column ──────────────────────────────────────────────────────────────── */
+.colTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+/* ── Brand col ───────────────────────────────────────────────────────────── */
+.logoLink {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+.brandDesc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* Sub-brand */
+.subBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 20px;
+}
+
+.subBrandIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.subBrandName {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.subBrandTagline {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+/* Socials */
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socialIcon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.socialIcon:hover {
+  border-color: var(--purple-1);
+  color: var(--purple-1);
+  background: rgba(124,58,237,0.08);
+  transform: translateY(-3px);
+}
+
+/* ── Link lists ──────────────────────────────────────────────────────────── */
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: color var(--transition);
+  position: relative;
+  display: inline-block;
+}
+
+.link:hover {
+  color: var(--purple-1);
+}
+
+/* ── Contact list ────────────────────────────────────────────────────────── */
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contactList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.contactIcon {
+  flex-shrink: 0;
+  color: var(--purple-1);
+  margin-top: 2px;
+}
+
+.remoteNote {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding-left: 4px;
+  font-style: italic;
+}
+
+/* ── Bottom bar ──────────────────────────────────────────────────────────── */
+.bottomBar {
+  border-top: 1px solid var(--border-light);
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.madeWith {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.heart {
+  color: #ec4899;
+  display: inline-block;
+  animation: heartbeat 1.6s ease infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14%       { transform: scale(1.25); }
+  28%       { transform: scale(1); }
+  42%       { transform: scale(1.15); }
+  70%       { transform: scale(1); }
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding-top: 60px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-bottom: 40px;
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    text-align: center;
+  }
+}

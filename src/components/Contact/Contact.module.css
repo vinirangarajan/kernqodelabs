@@ -1,0 +1,377 @@
+/* ── Contact Section ────────────────────────────────────────────────────── */
+.contact {
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.header .section-subtitle {
+  max-width: 480px;
+}
+
+/* ── Grid ───────────────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ── Info column ────────────────────────────────────────────────────────── */
+.infoGlowCard {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  box-shadow: var(--shadow-purple);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.infoGlowBlob {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(124,58,237,0.2), transparent 70%);
+  pointer-events: none;
+}
+
+.infoCard {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.infoIcon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(124,58,237,0.12);
+  border: 1px solid rgba(124,58,237,0.25);
+  border-radius: var(--radius-sm);
+  color: var(--purple-1);
+}
+
+.infoTitle {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+
+.infoDetail {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.infoSub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* ── Socials ─────────────────────────────────────────────────────────────── */
+.socials {
+  display: flex;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.socialIcon:hover {
+  border-color: var(--purple-1);
+  color: var(--purple-1);
+  background: rgba(124,58,237,0.08);
+  transform: translateY(-3px);
+}
+
+/* ── Form ────────────────────────────────────────────────────────────────── */
+.formWrap {
+  position: relative;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Sending overlay ─────────────────────────────────────────────────────── */
+.sendingOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--bg-glass, rgba(18,18,46,0.75));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: var(--radius-lg);
+  animation: overlayIn 0.25s ease;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.sendingSpinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(124,58,237,0.2);
+  border-top-color: var(--purple-1);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.sendingText {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.sendingDots::after {
+  content: '';
+  animation: dots 1.2s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%   { content: ''; }
+  25%  { content: '.'; }
+  50%  { content: '..'; }
+  75%  { content: '...'; }
+  100% { content: ''; }
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* For textarea, icon is top-aligned */
+.fieldTextarea .fieldIcon {
+  top: 18px;
+  transform: none;
+}
+
+.fieldTextarea {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px 14px 44px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+  position: relative;
+  z-index: 0;
+}
+
+/* Purple underline focus effect */
+.input::after {
+  content: '';
+}
+
+.input:focus {
+  border-color: var(--purple-1);
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.12);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 130px;
+  padding-left: 44px;
+  padding-top: 14px;
+}
+
+/* Error state */
+.hasError .input {
+  border-color: #ef4444;
+}
+
+.errMsg {
+  font-size: 0.8rem;
+  color: #ef4444;
+  margin-top: 5px;
+  padding-left: 4px;
+}
+
+/* ── Submit button ────────────────────────────────────────────────────────── */
+.submitBtn {
+  width: 100%;
+  justify-content: center;
+  padding: 16px;
+  font-size: 1rem;
+}
+
+.submitBtn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Spinner ──────────────────────────────────────────────────────────────── */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Sending pulse ring on submit button ─────────────────────────────────── */
+.submitBtn.sending {
+  position: relative;
+  overflow: hidden;
+}
+
+.submitBtn.sending::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: shimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ── Success box ──────────────────────────────────────────────────────────── */
+.successBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  padding: 60px 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-purple);
+}
+
+.successIcon {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-brand);
+  border-radius: 50%;
+  font-size: 2rem;
+  color: #fff;
+  box-shadow: var(--shadow-purple);
+  animation: pop 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+@keyframes pop {
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+}
+
+.successBox h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.successBox p {
+  color: var(--text-secondary);
+  max-width: 320px;
+}
+
+.errorAlert {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .infoGlowCard {
+    padding: 28px 20px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+}

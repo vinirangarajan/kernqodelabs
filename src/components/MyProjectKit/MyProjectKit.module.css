@@ -1,0 +1,246 @@
+/* ── MyProjectKit Section ───────────────────────────────────────────────── */
+
+/* Force gradient bg in both themes */
+.mpk {
+  background: linear-gradient(135deg, #0d1250 0%, #1a0a3e 100%) !important;
+  padding: var(--section-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative radial particles */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.18), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c4b8ff;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #93c5fd; /* light-blue accent */
+  margin-bottom: 18px;
+  letter-spacing: 0.02em;
+}
+
+.desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+}
+
+/* ── Body grid ──────────────────────────────────────────────────────────── */
+.body {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Cards ──────────────────────────────────────────────────────────────── */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: var(--transition);
+}
+
+.card:hover {
+  background: rgba(255,255,255,0.13);
+  border-color: rgba(255,255,255,0.3);
+  transform: translateX(6px);
+}
+
+.cardIcon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-sm);
+  color: #c4b8ff;
+}
+
+.cardTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.cardDesc {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+}
+
+/* ── CTA ────────────────────────────────────────────────────────────────── */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  align-self: flex-start;
+}
+
+.cta:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* ── Logo panel ─────────────────────────────────────────────────────────── */
+.logoPanel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.logoGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(124,58,237,0.35), transparent 70%);
+  pointer-events: none;
+}
+
+.logoMain {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 0 60px rgba(124,58,237,0.4);
+}
+
+.logoImg {
+  width: 100%;
+  max-width: 340px;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+
+.logoCircleWrap {
+  position: relative;
+  z-index: 1;
+  animation: spin-slow 18s linear infinite;
+}
+
+.logoCircle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 24px rgba(124,58,237,0.5);
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+.subBrand {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .body {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .logoPanel {
+    order: -1;
+  }
+
+  .cta {
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .card {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

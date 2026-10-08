@@ -1,0 +1,594 @@
+/* ─── Keyframes ──────────────────────────────────────────────────────── */
+@keyframes floatCard {
+  0%   { transform: translateY(0px)   rotate3d(1, 1, 0, 0deg);  }
+  33%  { transform: translateY(-14px) rotate3d(1, 0, 0, 2deg);  }
+  66%  { transform: translateY(-8px)  rotate3d(0, 1, 0, -2deg); }
+  100% { transform: translateY(0px)   rotate3d(1, 1, 0, 0deg);  }
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1);    opacity: 0.55; }
+  50%       { transform: scale(1.18); opacity: 0.75; }
+}
+
+@keyframes spinGeo {
+  from { transform: rotate3d(1, 1, 0, 0deg); }
+  to   { transform: rotate3d(1, 1, 0, 360deg); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50%       { transform: translateY(8px); opacity: 1; }
+}
+
+@keyframes floatPill {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes glowRingSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─── Hero section ───────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 72px; /* navbar offset */
+}
+
+/* ─── Dot-grid particle background ──────────────────────────────────── */
+.particleGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(124, 58, 237, 0.18) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Gradient orbs ──────────────────────────────────────────────────── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: orbPulse 8s ease-in-out infinite;
+}
+
+.orb1 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.35), transparent 70%);
+  top: -120px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.orb2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.3), transparent 70%);
+  bottom: -80px;
+  left: 30%;
+  animation-delay: 2.5s;
+}
+
+.orb3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.2), transparent 70%);
+  top: 20%;
+  right: -60px;
+  animation-delay: 1.2s;
+}
+
+.orb4 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(109, 40, 217, 0.25), transparent 70%);
+  top: 60%;
+  right: 20%;
+  animation-delay: 3.8s;
+}
+
+/* ─── Floating geometric shapes ──────────────────────────────────────── */
+.geo {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.12;
+  transform-style: preserve-3d;
+}
+
+.geo1 {
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--purple-1);
+  border-radius: 16px;
+  top: 18%;
+  left: 6%;
+  animation: spinGeo 18s linear infinite;
+}
+
+.geo2 {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--purple-2);
+  border-radius: 50%;
+  bottom: 28%;
+  left: 12%;
+  animation: spinGeo 12s linear infinite reverse;
+}
+
+.geo3 {
+  width: 64px;
+  height: 64px;
+  border: 2px solid rgba(236, 72, 153, 0.6);
+  border-radius: 10px;
+  bottom: 20%;
+  right: 8%;
+  animation: spinGeo 22s linear infinite;
+}
+
+/* ─── Inner two-column layout ────────────────────────────────────────── */
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  min-height: calc(100vh - 72px);
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+/* ─── Left – text column ─────────────────────────────────────────────── */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.label {
+  align-self: flex-start;
+}
+
+.headline {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.12;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.gradWord {
+  display: inline-block;
+}
+
+.sub {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 500px;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.btnHero {
+  font-size: 1rem !important;
+}
+
+/* ─── Trust badges ───────────────────────────────────────────────────── */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.badge:hover {
+  border-color: rgba(124, 58, 237, 0.4);
+  color: var(--purple-1);
+  background: rgba(124, 58, 237, 0.08);
+}
+
+/* ─── Right – video column ───────────────────────────────────────────── */
+.videoCol {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Spinning glow rings behind card */
+.glowRing,
+.glowRing2 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.glowRing {
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  animation: glowRingSpin 20s linear infinite;
+  background: conic-gradient(from 0deg, transparent 70%, rgba(124, 58, 237, 0.35) 100%);
+}
+
+.glowRing2 {
+  width: 500px;
+  height: 500px;
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  animation: glowRingSpin 30s linear infinite reverse;
+  background: conic-gradient(from 180deg, transparent 80%, rgba(79, 70, 229, 0.2) 100%);
+}
+
+/* ─── Video card ─────────────────────────────────────────────────────── */
+.videoCard {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-card);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow:
+    0 0  0 1px rgba(124, 58, 237, 0.1),
+    0 0 40px rgba(124, 58, 237, 0.2),
+    var(--shadow-purple-lg);
+  animation: floatCard 7s ease-in-out infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Card header */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-light);
+  background: rgba(124, 58, 237, 0.05);
+}
+
+.cardIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  background: var(--gradient-brand);
+}
+
+.cardMeta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cardTitle {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.cardSub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* macOS-style traffic dots */
+.dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dots span:nth-child(1) { background: #ff5f57; }
+.dots span:nth-child(2) { background: #febc2e; }
+.dots span:nth-child(3) { background: #28c840; }
+
+/* Video wrapper */
+.videoWrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #0a0a1a;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Poster overlay – hides once video starts */
+.videoPoster {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #0d0d2b 0%, #1a0a3e 50%, #0d0d2b 100%);
+  pointer-events: none;
+}
+
+.playBtn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: var(--shadow-purple-lg);
+}
+
+.posterLabel {
+  font-size: 0.85rem;
+  color: rgba(160, 160, 200, 0.7);
+  font-weight: 500;
+}
+
+/* Card footer */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-light);
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: blink 2s ease-in-out infinite;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+/* ─── Floating stat pills ────────────────────────────────────────────── */
+.floatPill {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-purple);
+  white-space: nowrap;
+  z-index: 3;
+}
+
+.pill1 {
+  top: 10%;
+  right: -30px;
+  color: var(--purple-1);
+  animation: floatPill 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.pill2 {
+  bottom: 12%;
+  left: -30px;
+  animation: floatPill 4.5s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+/* ─── Scroll indicator ───────────────────────────────────────────────── */
+.scrollIndicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 1;
+}
+
+.scrollLine {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--purple-1), transparent);
+  border-radius: 2px;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.scrollText {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .inner {
+    gap: 40px;
+  }
+
+  .glowRing  { width: 340px; height: 340px; }
+  .glowRing2 { width: 420px; height: 420px; }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding-top: 24px;
+    padding-bottom: 80px;
+    min-height: auto;
+  }
+
+  .hero {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    min-height: 100svh;
+    align-items: flex-start;
+  }
+
+  .headline { font-size: clamp(2rem, 7vw, 3rem); }
+  .sub      { font-size: 1rem; max-width: 100%; }
+
+  .videoCol { order: 2; }
+  .textCol  { order: 1; }
+
+  .pill1 { top: -14px; right: 10px; }
+  .pill2 { bottom: -14px; left: 10px; }
+
+  .scrollIndicator { display: none; }
+
+  .geo1, .geo2, .geo3 { display: none; }
+
+  .glowRing  { width: 280px; height: 280px; }
+  .glowRing2 { width: 360px; height: 360px; }
+}
+
+@media (max-width: 480px) {
+  .badges { gap: 8px; }
+  .badge  { font-size: 0.76rem; padding: 6px 12px; }
+  .ctaRow { flex-direction: column; align-items: flex-start; }
+  .pill1, .pill2 { display: none; }
+}
+
+/* ─── Brand Showcase Card ─────────────────────────────────────────────── */
+.brandCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 20px 20px;
+  flex: 1;
+}
+
+.brandLogo {
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
+  object-fit: cover;
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.5), 0 8px 24px rgba(0,0,0,0.3);
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+.brandTagline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* ─── Tech Cloud ─────────────────────────────────────────────────────── */
+.techCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.techTag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 50px;
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  color: var(--purple-1);
+  letter-spacing: 0.03em;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.techTag:hover {
+  background: rgba(124, 58, 237, 0.22);
+  transform: translateY(-2px);
+}
+
+/* ─── Footer Stats ───────────────────────────────────────────────────── */
+.footerStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.footerStat strong {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footerStat span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.footerDivider {
+  width: 1px;
+  height: 32px;
+  background: var(--border);
+}

@@ -1,0 +1,438 @@
+/* ─── Products Section ────────────────────────────────────────────────── */
+.products {
+  background-color: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.products::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────── */
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ─── Product Card ────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient-brand);
+}
+
+/* ─── Two-col grid ────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ─── Left ────────────────────────────────────────────────────────────── */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Status */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 50px;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.25);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #16a34a;
+  width: fit-content;
+}
+
+.statusDot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.85); }
+}
+
+/* App name row */
+.appNameRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.appIconWrap {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  background: var(--gradient-brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-purple);
+  flex-shrink: 0;
+}
+
+.appName {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.appCategory {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Description */
+.appDesc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+/* Platforms */
+.platforms {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.platformBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 8px;
+  background: rgba(124,58,237,0.1);
+  border: 1px solid rgba(124,58,237,0.2);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--purple-1);
+}
+
+.platformBadgeComing {
+  padding: 7px 16px;
+  border-radius: 8px;
+  background: rgba(251,191,36,0.1);
+  border: 1px solid rgba(251,191,36,0.25);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #d97706;
+}
+
+/* ─── Features ────────────────────────────────────────────────────────── */
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.feature:hover {
+  border-color: rgba(124,58,237,0.3);
+  box-shadow: 0 4px 16px rgba(124,58,237,0.1);
+}
+
+.featureIcon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: rgba(124,58,237,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple-1);
+  flex-shrink: 0;
+}
+
+.featureLabel {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.featureDesc {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ─── Right: Phone ────────────────────────────────────────────────────── */
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phoneWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.phoneGlow {
+  position: absolute;
+  width: 280px; height: 400px;
+  background: radial-gradient(circle, rgba(124,58,237,0.3), transparent 70%);
+  filter: blur(40px);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Phone shell */
+.phone {
+  width: 240px;
+  background: #1a1a2e;
+  border-radius: 36px;
+  border: 6px solid #2a2a4e;
+  box-shadow:
+    0 40px 80px rgba(0,0,0,0.5),
+    inset 0 0 0 1px rgba(124,58,237,0.2),
+    0 0 0 1px rgba(0,0,0,0.5);
+  animation: phoneFloat 5s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes phoneFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+.phoneTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 0 6px;
+}
+
+.phoneSpeaker {
+  width: 48px; height: 5px;
+  background: #2a2a4e;
+  border-radius: 3px;
+}
+
+.phoneCamera {
+  width: 8px; height: 8px;
+  background: #2a2a4e;
+  border-radius: 50%;
+}
+
+/* Screen */
+.phoneScreen {
+  background: #0d0d1f;
+  margin: 0 4px;
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+.statusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+}
+
+/* App UI */
+.appUI {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 8px 10px 12px;
+  gap: 8px;
+}
+
+.appHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+}
+
+.appHeaderLabel {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #f0f0fa;
+}
+
+/* Map */
+.mapPlaceholder {
+  flex: 1;
+  background: #0f1629;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  min-height: 160px;
+}
+
+.mapGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.mapRoute {
+  position: absolute;
+  top: 40%; left: 20%;
+  width: 60%; height: 3px;
+  background: linear-gradient(90deg, rgba(124,58,237,0.8), rgba(79,70,229,0.6));
+  border-radius: 2px;
+}
+
+.mapPin {
+  position: absolute;
+  top: 30%; right: 20%;
+  filter: drop-shadow(0 0 8px rgba(124,58,237,0.8));
+  animation: pinBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes pinBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-5px); }
+}
+
+/* Destination card */
+.destCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #12122e;
+  border-radius: 10px;
+  padding: 10px 12px;
+  border: 1px solid rgba(124,58,237,0.2);
+}
+
+.destLabel {
+  font-size: 0.6rem;
+  color: rgba(160,160,200,0.7);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.destName {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f0f0fa;
+  margin-top: 2px;
+}
+
+.destEta {
+  text-align: center;
+}
+
+.etaNum {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #7C3AED;
+  line-height: 1;
+}
+
+.etaUnit {
+  font-size: 0.6rem;
+  color: rgba(160,160,200,0.7);
+}
+
+/* Alert bar */
+.alertBar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(124,58,237,0.15);
+  border: 1px solid rgba(124,58,237,0.3);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.65rem;
+  color: rgba(160,160,255,0.9);
+  font-weight: 500;
+}
+
+/* Home button */
+.homeBtn {
+  width: 40px; height: 5px;
+  background: #2a2a4e;
+  border-radius: 3px;
+  margin: 10px auto 8px;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .right { order: -1; }
+  .card { padding: 32px; }
+}
+
+@media (max-width: 640px) {
+  .features { grid-template-columns: 1fr; }
+  .card { padding: 24px 20px; }
+  .phone { width: 200px; }
+  .phoneScreen { min-height: 300px; }
+  .mapPlaceholder { min-height: 120px; }
+}

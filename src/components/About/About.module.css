@@ -1,0 +1,185 @@
+/* ── About Section ──────────────────────────────────────────────────────── */
+.about {
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+/* ── Left ───────────────────────────────────────────────────────────────── */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+/* ── Right ──────────────────────────────────────────────────────────────── */
+.right {
+  position: relative;
+}
+
+.glowFrame {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-purple);
+  overflow: hidden;
+}
+
+/* Decorative blobs */
+.blob1 {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(124,58,237,0.22), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.blob2 {
+  position: absolute;
+  bottom: -80px;
+  left: -60px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(79,70,229,0.18), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ── Stats grid ─────────────────────────────────────────────────────────── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  transition: var(--transition);
+}
+
+.statCard:hover {
+  border-color: var(--purple-1);
+  box-shadow: var(--shadow-purple);
+  transform: translateY(-3px);
+}
+
+.statValue {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Tech row ───────────────────────────────────────────────────────────── */
+.techRow {
+  margin-top: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.techLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.techBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--purple-1);
+  background: rgba(124,58,237,0.1);
+  border: 1px solid rgba(124,58,237,0.25);
+  border-radius: 50px;
+  padding: 5px 14px;
+  transition: var(--transition);
+}
+
+.badge:hover {
+  background: rgba(124,58,237,0.2);
+  border-color: var(--purple-1);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .glowFrame {
+    padding: 28px 20px;
+  }
+
+  .statsGrid {
+    gap: 12px;
+  }
+
+  .statValue {
+    font-size: 2rem;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas a {
+    text-align: center;
+    justify-content: center;
+  }
+}
